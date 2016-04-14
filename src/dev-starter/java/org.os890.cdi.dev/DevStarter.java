@@ -32,8 +32,8 @@ public class DevStarter {
         //a custom port is broken - see SWARM-333
         //workaround: -Dswarm.http.port
         //+ for this demo also: -DhttpPort=...
-        //System.setProperty("swarm.http.port", ConfigResolver.getProjectStageAwarePropertyValue("httpPort"));
         Container container = new Container();
+        System.setProperty("swarm.http.port", ConfigResolver.getProjectStageAwarePropertyValue("httpPort"));
 
         String context = ConfigResolver.getProjectStageAwarePropertyValue("serviceRoot");
         WARArchive warArchive = container.createDefaultDeployment().as(WARArchive.class).setContextRoot(context);
