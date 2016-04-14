@@ -27,9 +27,10 @@ import org.wildfly.swarm.undertow.WARArchive;
  */
 public class DevStarter {
     public static void main(String[] args) throws Exception {
-        System.setProperty("faces.PROJECT_STAGE", "Development"); //only for ds, because mojarra ignores it
+        System.setProperty("faces.PROJECT_STAGE", "Development"); //will be picked up by deltaspike -> mojarra will use it as well (since deltaspike v1.6.0)
 
         Container container = new Container();
+        //every access of logging (in-/directly) needs to be after the creation of the container
         System.setProperty("swarm.http.port", ConfigResolver.getProjectStageAwarePropertyValue("httpPort"));
 
         String context = ConfigResolver.getProjectStageAwarePropertyValue("serviceRoot");
