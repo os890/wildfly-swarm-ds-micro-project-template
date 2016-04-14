@@ -37,7 +37,6 @@ public class DevStarter {
 
         String context = ConfigResolver.getProjectStageAwarePropertyValue("serviceRoot");
         WARArchive warArchive = container.createDefaultDeployment().as(WARArchive.class).setContextRoot(context);
-        //.addContextParam("faces.PROJECT_STAGE", "Development"); is currently broken - see SWARM-332
 
         container.start();
         container.deploy(warArchive);
