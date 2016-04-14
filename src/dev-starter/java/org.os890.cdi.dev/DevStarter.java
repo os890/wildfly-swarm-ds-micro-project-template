@@ -29,9 +29,6 @@ public class DevStarter {
     public static void main(String[] args) throws Exception {
         System.setProperty("faces.PROJECT_STAGE", "Development"); //only for ds, because mojarra ignores it
 
-        //a custom port is broken - see SWARM-333
-        //workaround: -Dswarm.http.port
-        //+ for this demo also: -DhttpPort=...
         Container container = new Container();
         System.setProperty("swarm.http.port", ConfigResolver.getProjectStageAwarePropertyValue("httpPort"));
 
