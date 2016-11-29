@@ -33,10 +33,11 @@ public class DevStarter {
         //every access of logging (in-/directly) needs to be after the creation of the container
         System.setProperty("swarm.http.port", ConfigResolver.getProjectStageAwarePropertyValue("httpPort"));
 
+        container.start();
+
         String context = ConfigResolver.getProjectStageAwarePropertyValue("serviceRoot");
         WARArchive warArchive = container.createDefaultDeployment().as(WARArchive.class).setContextRoot(context);
 
-        container.start();
         container.deploy(warArchive);
     }
 }

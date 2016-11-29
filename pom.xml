@@ -31,8 +31,8 @@
 
     <properties>
         <ds.version>1.6.0</ds.version>
-        <wildfly-swarm.version>1.0.0.Beta7</wildfly-swarm.version>
-        <wildfly-swarm-ee.version>1.0.0.Beta5</wildfly-swarm-ee.version>
+        <wildfly-swarm.version>2016.11.0</wildfly-swarm.version>
+        <wildfly-swarm-ee.version>2016.11.0</wildfly-swarm-ee.version>
 
         <app.context>demo-service</app.context>
         <app.http.port>8080</app.http.port>
