@@ -46,7 +46,36 @@
         </dependency>
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
+            <artifactId>ejb</artifactId>
+            <version>${wildfly-swarm-ee.version}</version>
+        </dependency>
+
+        <!-- jpa - start -->
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>jpa</artifactId>
+            <version>${wildfly-swarm-ee.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>datasources</artifactId>
+            <version>${wildfly-swarm-ee.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.192</version>
+        </dependency>
+        <!-- jpa - end -->
+
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
             <artifactId>jsf</artifactId>
+            <version>${wildfly-swarm-ee.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>jaxrs</artifactId>
             <version>${wildfly-swarm-ee.version}</version>
         </dependency>
 

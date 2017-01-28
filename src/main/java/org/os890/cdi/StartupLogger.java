@@ -19,11 +19,15 @@
 package org.os890.cdi;
 
 import org.apache.deltaspike.core.api.config.ConfigProperty;
+import org.os890.jaxrs.IdeaResource;
+import org.os890.jaxrs.RestApp;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Initialized;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.Path;
 import java.util.logging.Logger;
 
 public class StartupLogger {
@@ -48,5 +52,9 @@ public class StartupLogger {
     public void onStartup(@Observes @Initialized(ApplicationScoped.class) Object startupEvent) {
         LOG.info("service '" + serviceName + "' started in version " + this.serviceVersion + "");
         LOG.info("info-page at http://localhost:" + httpPort + "/" + this.serviceRoot + "");
+
+        if ("true".equalsIgnoreCase(System.getProperty("use_jpa"))) {
+            LOG.info("jpa-test at http://localhost:" + httpPort + "/" + this.serviceRoot + "/" + RestApp.class.getAnnotation(ApplicationPath.class).value() + "/" + IdeaResource.class.getAnnotation(Path.class).value());
+        }
     }
 }
