@@ -1,0 +1,9 @@
+Run it via:
+mvn wildfly-swarm:run
+or via
+DevStarterWithJpa (= Java SE based starter)
+
+-> open
+http://localhost:8080/demo-service
+and/or
+http://localhost:8080/demo-service/rest/test-jpa

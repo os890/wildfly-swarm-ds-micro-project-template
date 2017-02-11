@@ -31,14 +31,19 @@ public class DevStarterWithJpa {
         System.setProperty("faces.PROJECT_STAGE", "Development");
         System.setProperty("use_jpa", "true");
 
-        Swarm container = new Swarm().fraction(new DatasourcesFraction()
-                .dataSource("DemoDS", (ds) -> {
-                    ds.driverName("h2");
-                    ds.connectionUrl("jdbc:h2:mem:demoDB;DB_CLOSE_DELAY=-1"); //DB_CLOSE_ON_EXIT=FALSE
-                    ds.userName("sa");
-                    ds.password("sa");
-                })
-        );
+        Swarm container = new Swarm()
+                //part only in case of JPA - start
+                .fraction(new DatasourcesFraction()
+                    .dataSource("DemoDS", (ds) -> {
+                        ds.driverName("h2");
+                        ds.connectionUrl("jdbc:h2:mem:demoDB;DB_CLOSE_DELAY=-1"); //DB_CLOSE_ON_EXIT=FALSE
+                        ds.userName("sa");
+                        ds.password("sa");
+                    })
+                )
+                //part only in case of JPA - end
+        ;
+
         System.setProperty("swarm.http.port", ConfigResolver.getProjectStageAwarePropertyValue("httpPort"));
 
         container.start();

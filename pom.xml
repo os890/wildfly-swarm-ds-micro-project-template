@@ -155,6 +155,10 @@
                     <properties>
                         <swarm.http.port>${app.http.port}</swarm.http.port>
                         <swarm.context.path>${app.context}</swarm.context.path>
+                        <swarm.ds.name>DemoDS</swarm.ds.name>
+                        <swarm.ds.connection.url>jdbc:h2:mem:demoDB;DB_CLOSE_DELAY=-1</swarm.ds.connection.url>
+                        <swarm.ds.username>sa</swarm.ds.username>
+                        <swarm.ds.password>sa</swarm.ds.password>
                     </properties>
                     <jvmArguments>
                         <jvmArgument>-Xmx128m</jvmArgument>
